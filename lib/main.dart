@@ -67,16 +67,15 @@ class _CalculatorAppState extends State<CalculatorApp> {
       else if (operation == '/') {
         res = (firstNum / secondNum).toString();
       }
-      else {
-        res = int.parse(textToDisplay + btnVal).toString();
-      }
-      
+
       history = firstNum.toString() + operation.toString() + secondNum.toString();
-      
-      setState(() {
-        textToDisplay = res;
-      });
     }
+    else {
+      res = int.parse(textToDisplay + btnVal).toString();
+    }
+    setState(() {
+      textToDisplay = res;
+    });
   }
 
   @override
