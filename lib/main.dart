@@ -21,6 +21,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
   String textToDisplay = '';
   String res = '';
   String operation = '';
+  String interNum = '';
 
   void btnOnClick(String btnVal) {
     if(btnVal == 'C') {
@@ -36,6 +37,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
       secondNum = 0;
       res = '';
       history = '';
+      interNum = '';
     }
 
     else if (btnVal == '<') {
@@ -51,6 +53,8 @@ class _CalculatorAppState extends State<CalculatorApp> {
       firstNum = int.parse(textToDisplay);
       res = '';
       operation = btnVal;
+      interNum = firstNum.toString();
+      interNum = firstNum.toString() + operation.toString();
     }
 
     else if (btnVal == '=') {
@@ -67,7 +71,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
       else if (operation == '/') {
         res = (firstNum / secondNum).toString();
       }
-
+      interNum = '';
       history = firstNum.toString() + operation.toString() + secondNum.toString();
     }
     else {
@@ -98,7 +102,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              padding: const EdgeInsets.only(right: 12),
+              padding: const EdgeInsets.all(12),
               child: Align(
                 alignment: const Alignment(1.0, 1.0),
                 child: Text(
@@ -111,7 +115,21 @@ class _CalculatorAppState extends State<CalculatorApp> {
               ),
             ),
 
-            Padding(
+            Container(
+              padding: const EdgeInsets.only(right: 12),
+              child: Align(
+                alignment: const Alignment(1.0, 1.0),
+                child: Text(
+                  interNum,
+                  style: GoogleFonts.rubik(
+                    fontSize: 30,
+                    color: const Color(0x66FFFFFF),
+                  ),
+                ),
+              ),
+            ),
+
+            Container(
               padding: const EdgeInsets.all(12),
               child: Align(
                 alignment: const Alignment(1.0, 1.0),
