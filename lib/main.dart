@@ -40,6 +40,15 @@ class _CalculatorAppState extends State<CalculatorApp> {
       interNum = '';
     }
 
+    else if (btnVal == '+-') {
+      if (textToDisplay[0] != '-') {
+        res = '-$textToDisplay';
+      }
+      else {
+        res = textToDisplay.substring(1);
+      }
+    }
+
     else if (btnVal == '<') {
       res = textToDisplay.substring(0, textToDisplay.length -1);
     }
@@ -279,7 +288,7 @@ class _CalculatorAppState extends State<CalculatorApp> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Button(
-                  text: '.', 
+                  text: '+-', 
                   color: '#2B4141', 
                   textColor: '#ffffff',
                   callback: btnOnClick,
